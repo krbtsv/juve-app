@@ -7,10 +7,16 @@ ___
 
 ![Thumbnail](Documents/celery_structure.jpg)
 ---
-### Start development server:
-After clone repository run command:  
+### Start development server(Linux):
+After clone repository run command:
++ Open the project folder in IDE
 
-    cd webapp/src
+
+    python3 -m venv venv
+    source venv/bin/activate
+    cd webapp
+    pip install -r requirements.txt
+    cd src
     python manage.py migrate
     docker-compose up --build
 ___
