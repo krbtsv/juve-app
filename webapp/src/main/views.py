@@ -16,3 +16,13 @@ class TaskSetter(APIView):
     def get(self, request, formant=None):
         res = cpu_task.delay()
         return Response(res.id)
+
+
+class TaskGetter(APIView):
+    def get(self, request, formant=None):
+        task_id = request.GET.get('task_id')
+        if task_id:
+            res = AsyncResult(task_id)
+            return Response(res.state)
+        else:
+            Response('No id was provided')
