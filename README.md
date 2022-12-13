@@ -8,9 +8,7 @@ ___
 ![Thumbnail](Documents/celery_structure.jpg)
 ---
 ### Start development server(Linux):
-After clone repository run command:
-+ Open the project folder in IDE
-
+After clone repository open the project folder in IDE and run command:
 
     python3 -m venv venv
     source venv/bin/activate
