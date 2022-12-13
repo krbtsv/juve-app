@@ -1,3 +1,6 @@
+from random import randint
+import time
+
 import requests
 import uuid
 from celery import shared_task
@@ -15,3 +18,10 @@ def download_a_cat():
         for chunk in response.iter_content(chunk_size=128):
             f.write(chunk)
     pass
+
+
+@shared_task
+def cpu_task():
+    time_to_sleep = randint(5, 100)
+    time.sleep(time_to_sleep)
+    return f'Task slept {time_to_sleep} seconds'
