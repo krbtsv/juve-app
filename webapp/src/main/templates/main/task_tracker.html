@@ -20,7 +20,7 @@
             taskList.removeChild(el)
         }
         function checkker(tasks_el) {
-            axios.get(`http://127.0.0.1:8888/task_api/gettask/?task_id=${tasks_el.id}`)
+            axios.get(`http://127.0.0.1:8888/task-api/gettask/?task_id=${tasks_el.id}`)
             .then((res) => {
                 console.log(res.data, "CHECKED Status");
                 if (res.data == "SUCCESS") {
@@ -36,7 +36,7 @@
             })
         }
         function startTask() {
-            axios.get("http://127.0.0.1:8888/task_api/settask")
+            axios.get("http://127.0.0.1:8888/task-api/settask")
             .then((res) => {
                 console.log(res.data);
                 let taskitem = document.createElement("li");

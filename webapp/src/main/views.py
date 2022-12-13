@@ -1,5 +1,6 @@
 from celery.result import AsyncResult
 from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -10,6 +11,10 @@ from main.tasks import cpu_task
 def home(request):
     tasks.download_a_cat.delay()
     return HttpResponse('<h1>Гружу кота!</h1>')
+
+
+def task_tracker(request):
+    return render(request, 'main/task_tracker.html')
 
 
 class TaskSetter(APIView):
